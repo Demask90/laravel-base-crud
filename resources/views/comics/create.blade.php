@@ -2,6 +2,15 @@
 
 @section('content')
     <div class="container">
+        {{-- @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif --}}
         <form class="was-validated" action="{{ route('comics.store') }}" method="post">
 
             @csrf
@@ -11,6 +20,9 @@
                 <label for="title" class="form-label">Enter a Title</label>
                 <input type="text" name="title" class="form-control is-valid" id="title" placeholder="Required a Title" required>
             </div>
+            @error('title')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
             <div class="mb-3">
                 <label for="series" class="form-label">Enter a Series</label>
@@ -19,8 +31,16 @@
 
             <div class="mb-3">
                 <label for="type" class="form-label">Enter a Type</label>
-                <input type="text" name="type" class="form-control is-valid" id="type" placeholder="Required a Type" required>
+                {{-- <input type="text" name="type" class="form-control is-valid" id="type" placeholder="Required a Type" required> --}}
+                <select class="form-control" name="type" id="type" required>
+                    <option value=""><--Seleziona--></option>
+                    <option value="Comic Book">Comic Book</option>
+                    <option value="graphic novel">graphic novel</option>
+                </select>
             </div>
+            @error('tipe')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
 
             <div class="mb-3">
                 <label for="type" class="form-label">Enter a Date</label>
