@@ -36,9 +36,14 @@ class ComicController extends Controller {
 
         $request->validate([
             'title'=>'required|unique:comics|max:50',
+            'description'=>'required',
+            'thumb'=>'required|URL',
+            'price'=>'required|numeric',
+            'series'=>'required|max:50',
+            'sale_date'=>'required|date',
             'type'=>'required|max:20',
         ]);
-        
+
         $new_comic = new Comic();
         // $new_comic->title = $data['title'];
         // $new_comic->description = $data['description'];
@@ -68,10 +73,23 @@ class ComicController extends Controller {
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit($id, Request $request) {
         $comic = Comic::findOrFail($id);
+        // $data = $request->all();
+
+        // $request->validate([
+        //     'title'=>'required|unique:comics|max:50',
+        //     'description'=>'required',
+        //     'thumb'=>'required|URL',
+        //     'price'=>'required|numeric',
+        //     'series'=>'required|max:50',
+        //     'sale_date'=>'required|date',
+        //     'type'=>'required|max:20',
+        // ]);
+
         // if($details_comic) {
         //     return view('comics.edit', compact('comic'));
         // }

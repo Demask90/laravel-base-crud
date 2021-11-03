@@ -1,1 +1,9 @@
 @import 'node_modules/bootstrap/scss/bootstrap';
+@import 'partials/vars';
+@import 'partials/commons';
+@import 'partials/header';
+@import 'comics/create';
+@import 'comics/edit';
+@import 'comics/index';
+@import 'comics/show';
+@import 'comics/store';
