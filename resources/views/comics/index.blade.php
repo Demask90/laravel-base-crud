@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>LIST COMICS </h1>
+        <h1>LIST COMICS</h1>
         <a href="{{ route('comics.create') }}" class="btn btn-success my-2 ">create a new comic</a> 
         <div class="d-flex flex-wrap">
             @foreach ($comics as $comic)
@@ -23,7 +23,8 @@
                                 <form method="post" action="{{ route('comics.destroy',$comic['id']) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+
+                                    <button type="submit" onclick="deleteConfirm()" class="btn btn-danger">Delete</button>
                                 </form>
                             </span>
                         </div>
@@ -34,3 +35,11 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script >
+        function deleteConfirm() { 
+            confirm("Are you Sure?");  
+        }
+    </script>
+@endpush

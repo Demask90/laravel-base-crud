@@ -28,7 +28,7 @@
                 {{-- <input value={{ $comic['type'] }} type="text" name="type" class="form-control is-valid" id="type" placeholder="Required a Type" required> --}}
                 <select class="form-control" name="type" id="type" required>
                     <option value=""><--Selected--></option>
-                    <option value="Comic Book" {{$comic['type'] == "Comic Book" ? 'selected' : NULL}}>Comic Book</option>
+                    <option value="Comic Book" {{$comic['type'] == "comic book" ? 'selected' : NULL}}>comic book</option>
                     <option value="graphic novel" {{$comic['type'] == "graphic novel" ? 'selected' : NULL}}>graphic novel</option>
                 </select>
                 @error('type')
